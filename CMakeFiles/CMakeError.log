@@ -1,0 +1,22 @@
+Performing C SOURCE FILE Test IS_AARCH64 failed with the following output:
+Change Dir: /home/user/dev/MultiCraft-2.0.6/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_94848/fast"
+/usr/bin/make -f CMakeFiles/cmTC_94848.dir/build.make CMakeFiles/cmTC_94848.dir/build
+make[1]: Entering directory '/home/user/dev/MultiCraft-2.0.6/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_94848.dir/src.c.o
+/usr/bin/cc   -DIS_AARCH64   -o CMakeFiles/cmTC_94848.dir/src.c.o   -c /home/user/dev/MultiCraft-2.0.6/CMakeFiles/CMakeTmp/src.c
+/home/user/dev/MultiCraft-2.0.6/CMakeFiles/CMakeTmp/src.c:2:2: error: #error 
+ #error
+  ^~~~~
+CMakeFiles/cmTC_94848.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_94848.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_94848.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/user/dev/MultiCraft-2.0.6/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_94848/fast' failed
+make: *** [cmTC_94848/fast] Error 2
+
+Source file was:
+#ifndef __aarch64__
+#error
+#endif
+int main(){}

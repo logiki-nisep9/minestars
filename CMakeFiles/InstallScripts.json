@@ -1,0 +1,27 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/user/dev/MultiCraft-2.0.6/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/lib/jsoncpp/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/lib/chacha/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/lib/luautf8/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/lib/luachacha/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/threading/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/content/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/database/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/gui/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/mapgen/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/network/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/script/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/script/common/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/script/cpp_api/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/script/lua_api/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/unittest/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/util/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/irrlicht_changes/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/server/cmake_install.cmake",
+		"/home/user/dev/MultiCraft-2.0.6/src/slave_proxy_net/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
