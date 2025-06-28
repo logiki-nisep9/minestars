@@ -1,19 +1,18 @@
-MultiCraft Open Source
+MineStars Game Server Engine
 ======================
 
 ![Build Status](https://github.com/MultiCraft/MultiCraft2/workflows/build/badge.svg)
 [![License](https://img.shields.io/badge/license-LGPLv3.0%2B-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0.en.html)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/license-CC_BY--SA_4.0-orange.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-MultiCraft Open Source is a free open-source voxel game engine with easy modding and game creation.
+MineStars is a game server engine, with special capabilities, as:
+- Multiple servers support
+- Multithreaded Lua (Sandboxed, but with free usage)
+- Server Creator Engine (SNE->SSC)
 
-MultiCraft is based on the Minetest project, which is developed by a [number of contributors](https://github.com/minetest/minetest/graphs/contributors).
+MineStars is based on the Minetest & MultiCraft project
 
-Copyright © 2014-2023 Maksim Gamarnik [MoNTE48] <Maksym48@pm.me> & MultiCraft Development Team.
-
-[![License](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg)](https://jb.gg/OpenSourceSupport)
-
-Special thanks to JetBrains for their support of our community!
+This project MUST not be used to play like a client!
 
 Table of Contents
 ------------------
@@ -37,49 +36,6 @@ Further documentation
 - Minetest GitHub: https://github.com/minetest/minetest/
 - [doc/](doc/) directory of source distribution
 
-Default controls
-----------------
-All controls are re-bindable using settings.
-Some can be changed in the key config dialog in the settings tab.
-
-| Button                        | Action                                                         |
-|-------------------------------|----------------------------------------------------------------|
-| Move mouse                    | Look around                                                    |
-| W, A, S, D                    | Move                                                           |
-| Space                         | Jump/move up                                                   |
-| Shift                         | Sneak/move down                                                |
-| Q                             | Drop itemstack                                                 |
-| Shift + Q                     | Drop single item                                               |
-| Left mouse button             | Dig/punch/take item                                            |
-| Right mouse button            | Place/use                                                      |
-| Shift + right mouse button    | Build (without using)                                          |
-| I                             | Inventory menu                                                 |
-| Mouse wheel                   | Select item                                                    |
-| 0-9                           | Select item                                                    |
-| Z                             | Zoom (needs zoom privilege)                                    |
-| T                             | Chat                                                           |
-| /                             | Command                                                        |
-| Esc                           | Pause menu/abort/exit (pauses only singleplayer game)          |
-| R                             | Enable/disable full range view                                 |
-| +                             | Increase view range                                            |
-| -                             | Decrease view range                                            |
-| K                             | Enable/disable fly mode (needs fly privilege)                  |
-| P                             | Enable/disable pitch move mode                                 |
-| J                             | Enable/disable fast mode (needs fast privilege)                |
-| H                             | Enable/disable noclip mode (needs noclip privilege)            |
-| E                             | Move fast in fast mode                                         |
-| C                             | Cycle through camera modes                                     |
-| V                             | Cycle through minimap modes                                    |
-| Shift + V                     | Change minimap orientation                                     |
-| F1                            | Hide/show HUD                                                  |
-| F2                            | Hide/show chat                                                 |
-| F3                            | Disable/enable fog                                             |
-| F4                            | Disable/enable camera update (Mapblocks are not updated anymore when disabled, disabled in release builds)  |
-| F5                            | Cycle through debug information screens                        |
-| F6                            | Cycle through profiler info screens                            |
-| F10                           | Show/hide console                                              |
-| F12                           | Take screenshot                                                |
-
 Paths
 -----
 Locations:
@@ -90,34 +46,19 @@ Locations:
 
 Where each location is on each platform:
 
-* Windows .zip / RUN_IN_PLACE source:
-    * `bin`   = `bin`
-    * `share` = `.`
-    * `user`  = `.`
-* Windows installed:
-    * `bin`   = `C:\Program Files\MultiCraft\bin (Depends on the install location)`
-    * `share` = `C:\Program Files\MultiCraft (Depends on the install location)`
-    * `user`  = `%APPDATA%\MultiCraft`
-* Linux installed:
-    * `bin`   = `/usr/bin`
-    * `share` = `/usr/share/multicraft`
-    * `user`  = `~/.multicraft`
-* macOS:
-    * `bin`   = `Contents/MacOS`
-    * `share` = `Contents/Resources`
-    * `user`  = `Contents/User OR ~/Library/Application Support/multicraft`
+Depends where do you install this.
 
 Worlds can be found as separate folders in: `user/worlds/`
 
 Configuration file
 ------------------
 - Default location:
-    `user/multicraft.conf`
+    `user/minestars.conf`
 - This file is created by closing MultiCraft for the first time.
 - A specific file can be specified on the command line:
     `--config <path-to-file>`
 - A run-in-place build will look for the configuration file in
-    `location_of_exe/../multicraft.conf` and also `location_of_exe/../../multicraft.conf`
+    `location_of_exe/../minestars.conf` and also `location_of_exe/../../minestars.conf`
 
 Command-line options
 --------------------
@@ -286,83 +227,6 @@ Library specific options:
     ZLIB_INCLUDE_DIR                - Directory that contains zlib.h
     ZLIB_LIBRARY                    - Path to libz.a/libz.so/zlib.lib
 
-### Compiling on Windows
+# Compiling on Windows
 
-### Requirements
-
-- [Visual Studio 2015 or newer](https://visualstudio.microsoft.com)
-- [CMake](https://cmake.org/download/)
-- [vcpkg](https://github.com/Microsoft/vcpkg)
-- [Git](https://git-scm.com/downloads)
-
-### Compiling and installing the dependencies
-
-It is highly recommended to use vcpkg as package manager.
-
-#### a) Using vcpkg to install dependencies
-
-After you successfully built vcpkg you can easily install the required libraries:
-```powershell
-vcpkg install irrlicht zlib curl[winssl] openal-soft libvorbis libogg sqlite3 freetype luajit gmp jsoncpp --triplet x64-windows
-```
-
-- `curl` is optional, but required to read the serverlist, `curl[winssl]` is required to use the content store.
-- `openal-soft`, `libvorbis` and `libogg` are optional, but required to use sound.
-- `freetype` is optional, it allows true-type font rendering.
-- `luajit` is optional, it replaces the integrated Lua interpreter with a faster just-in-time interpreter.
-- `gmp` and `jsoncpp` are optional, otherwise the bundled versions will be compiled
-
-There are other optional libraries, but they are not tested if they can build and link correctly.
-
-Use `--triplet` to specify the target triplet, e.g. `x64-windows` or `x86-windows`.
-
-#### b) Compile the dependencies on your own
-
-This is outdated and not recommended. Follow the instructions on https://dev.minetest.net/Build_Win32_Minetest_including_all_required_libraries#VS2012_Build
-
-### Compile MultiCraft
-
-#### a) Using the vcpkg toolchain and CMake GUI
-1. Start up the CMake GUI
-2. Select **Browse Source...** and select DIR/multicraft
-3. Select **Browse Build...** and select DIR/multicraft-build
-4. Select **Configure**
-5. Choose the right visual Studio version and target platform. It has to match the version of the installed dependencies
-6. Choose **Specify toolchain file for cross-compiling**
-7. Click **Next**
-8. Select the vcpkg toolchain file e.g. `D:/vcpkg/scripts/buildsystems/vcpkg.cmake`
-9. Click Finish
-10. Wait until cmake have generated the cash file
-11. If there are any errors, solve them and hit **Configure**
-12. Click **Generate**
-13. Click **Open Project**
-14. Compile MultiCraft inside Visual studio.
-
-#### b) Using the vcpkg toolchain and the commandline
-
-Run the following script in PowerShell:
-
-```powershell
-cmake . -G"Visual Studio 15 2017 Win64" -DCMAKE_TOOLCHAIN_FILE=D:/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_GETTEXT=OFF -DENABLE_CURSES=OFF -DENABLE_SYSTEM_JSONCPP=ON
-cmake --build . --config Release
-```
-Make sure that the right compiler is selected and the path to the vcpkg toolchain is correct.
-
-#### c) Using your own compiled libraries
-
-**This is outdated and not recommended**
-
-Follow the instructions on https://dev.minetest.net/Build_Win32_Minetest_including_all_required_libraries#VS2012_Build
-
-### Windows Installer using WiX Toolset
-
-Requirements:
-* [Visual Studio 2017](https://visualstudio.microsoft.com/)
-* [WiX Toolset](https://wixtoolset.org/)
-
-In the Visual Studio 2017 Installer select **Optional Features -> WiX Toolset**.
-
-Build the binaries as described above, but make sure you unselect `RUN_IN_PLACE`.
-
-Open the generated project file with Visual Studio. Right-click **Package** and choose **Generate**.
-It may take some minutes to generate the installer.
+Not supported, soon.
